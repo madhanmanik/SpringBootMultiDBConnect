@@ -1,0 +1,32 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: DevTr  
+---
+spring:
+  profiles: DevTr
+  sybase_tr:
+      driver-class-name: com.sybase.jdbc4.jdbc.SybDataSource
+      url: jdbc:sybase:Tds:10.25.193.57:5000/xinterim
+      username: sa
+      password: sa12345
+      
+---      
+spring:
+  profiles: DevPr
+  sybase_pr:
+      driver-class-name: com.sybase.jdbc4.jdbc.SybDataSource
+      url: jdbc:sybase:Tds:10.25.193.56:5000/xinterim
+      username: sa
+      password: sa12345
+---    
+logging:
+  file: PAASAPI.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: DEBUG
+    guru.springframework.controllers: DEBUG
+    org.hibernate: DEBUG

@@ -1,0 +1,23 @@
+server:
+  port: 8090
+spring:
+#First Datasource (DB1)  
+  sybase_tr:
+      driver-class-name: com.sybase.jdbc4.jdbc.SybDataSource
+      url: jdbc:sybase:Tds:10.25.193.57:5000/xchgagent
+      username: sa
+      password: sa12345
+#Second Datasource (DB2)
+  sybase_pr:
+      driver-class-name: com.sybase.jdbc4.jdbc.SybDataSource
+      url: jdbc:sybase:Tds:10.25.193.56:5000/xchgagent
+      username: sa
+      password: sa12345
+      
+  jpa:
+    show-sql: true
+  properties:
+    hibernate:
+        dialect: org.hibernate.dialect.SybaseDialect
+  hibernate:
+    ddl-auto: update
